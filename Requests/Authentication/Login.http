@@ -1,0 +1,11 @@
+@host= http://localhost:5277
+
+Post {{host}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "learningdevelopment@gmail.com",
+    "password": "1234"
+}
+
+###
