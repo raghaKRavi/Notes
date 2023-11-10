@@ -1,7 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Notes.Application.Common.Interfaces.Authentication;
+using Notes.Application.Common.Interfaces.Presistence;
 using Notes.Application.Common.Interfaces.Services;
 using Notes.Infrastructure.Authentication;
+using Notes.Infrastructure.Presistence;
 using Notes.Infrastructure.Services;
 
 public static class DependencyInjection
@@ -11,6 +13,7 @@ public static class DependencyInjection
         services.Configure<JwtSettings>(configuration.GetSection(JwtSettings.SectionName));
         services.AddSingleton<ITokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+        services.AddScoped<IUserRepository, UserRepository>();
         return services;
     }
 }
